@@ -47,5 +47,135 @@ hr{
 .hangman-draw .the-draw{
     width: 60px;
     height: 280px;
+    margin: auto;
+    background-color: aqua;
     border-bottom: var(--px) solid var(--px-color);
+    position: relative;
+}
+
+.hangman-draw .the-stand::before{
+    content: '';
+    width: var(--px);
+    height: 100%;
+    background-color: var(--px-color);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.hangman-draw .the-hang::before{
+    content: '';
+    width: 150%;
+    height: var(--px);
+    background-color: var(--px-color);
+    position: absolute;
+    left: 30px;
+    top: 15px;
+}
+
+.hangman-draw .the-hang::after{
+    content: '';
+    width: var(--px);
+    height: 30px;
+    background-color: var(--px-color);
+    position: absolute;
+    right: -60px;
+    top: 15px;
+}
+
+.hangman-draw .the-rope{
+    width: 70px;
+    height: 70px;
+    border: var(--px) dashed var(--px-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    left: 82px;
+    top: 45px;
+}
+
+.hangman-draw .the-man .head{
+    width: 50px;
+    height: 50px;
+    border: var(--px) solid var(--px-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    left: 92px;
+    top: 54px;
+}
+
+.hangman-draw .the-man .body{
+    width: var(--px);
+    height: 40%;
+    background-color: var(--px-color);
+    position: absolute;
+    right: -60px;
+    top: 100px;
+}
+
+.hangman-draw .the-man .hands::after,
+.hangman-draw .the-man .hands::before{
+    content: '';
+    width: 70%;
+    height: var(--px);
+    background-color: var(--px-color);
+    position: absolute;
+    top: 50%;
+}
+
+.hangman-draw .the-man .hands::after{
+    left: 115px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+}
+
+.hangman-draw .the-man .hands::before{
+    left: 80px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
+.hangman-draw .the-man .legs::after,
+.hangman-draw .the-man .legs::before{
+    content: '';
+    width: 70%;
+    height: var(--px);
+    background-color: var(--px-color);
+    position: absolute;
+    top: 220px;
+}
+
+.hangman-draw .the-man .legs::after{
+    left: 115px;
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+}
+
+.hangman-draw .the-man .legs::before{
+    left: 80px;
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
 }
