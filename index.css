@@ -1,0 +1,51 @@
+:root{
+    --main-color: #E91E63;
+    --main-background-color: #F8F8F8;
+    --px: 4px;
+    --px-color: #222;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Tahoms, Arial;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row{
+    display: flex;
+}
+
+hr{
+    border: 1px solid #EEE;
+}
+
+.game-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info .category span{
+    text-transform: capitalize;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.hangman-draw{
+    flex: 1;
+    background-color: var(--main-background-color);
+    padding: 20px;
+    height: 324px;
+}
+
+.hangman-draw .the-draw{
+    width: 60px;
+    height: 280px;
+    border-bottom: var(--px) solid var(--px-color);
+}
