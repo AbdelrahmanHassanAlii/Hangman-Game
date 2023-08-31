@@ -403,6 +403,12 @@ hr {
     cursor: pointer;
 }
 
+.letters .letter-box.clicked{
+    background-color: var(--px-color);
+    opacity: .2;
+    pointer-events: none;
+}
+
 .letters-guess {
     margin: 10px auto;
     background-color: #F8F8F8;
