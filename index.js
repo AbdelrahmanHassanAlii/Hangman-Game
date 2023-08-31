@@ -58,7 +58,11 @@ document.addEventListener('click', (e) => {
         e.target.classList.add('clicked');
         let theClickedLetter = e.target.innerHTML.toLowerCase();
         console.log(theClickedLetter);
+        lettersAndSpace.forEach((wordLetter, index) => {
+            if(wordLetter === theClickedLetter){
+                console.log(`found at index ${index}`);
+            }
+        });
     }
-    
 });
 
