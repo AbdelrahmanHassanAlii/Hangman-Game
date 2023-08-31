@@ -39,3 +39,17 @@ console.log(randomPropName);
 console.log(randomPropValue);
 console.log(randomValueNumber);
 console.log(randomValueValue);
+
+let lettersGuessContainer =  document.querySelector('.letters-guess');
+
+let lettersAndSpace = Array.from(randomValueValue)
+console.log(lettersAndSpace);
+
+lettersAndSpace.forEach(letter => {
+    let emptySpan = document.createElement('span');
+    if(letter === ' '){
+        emptySpan.className = 'with-space';
+    }
+    lettersGuessContainer.appendChild(emptySpan);
+});
+
