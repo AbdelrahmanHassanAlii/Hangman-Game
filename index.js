@@ -53,3 +53,12 @@ lettersAndSpace.forEach(letter => {
     lettersGuessContainer.appendChild(emptySpan);
 });
 
+document.addEventListener('click', (e) => {
+    if(e.target.className === 'letter-box'){
+        e.target.classList.add('clicked');
+        let theClickedLetter = e.target.innerHTML.toLowerCase();
+        console.log(theClickedLetter);
+    }
+    
+});
+
