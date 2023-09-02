@@ -111,8 +111,19 @@ document.addEventListener("click", (e) => {
       document.getElementById("fail").play();
 
       if (wrongAttemps === 8) {
-        endGame();
+        setTimeout(() => {
+          endGame();
+          window.reload();
+        }, 2000);
+
+        // setTimeout(() => {
+        //   location.reload()
+        // }, 5000);
+
         lettersContainer.classList.add("finished");
+        document.getElementById("killed").play();
+        document.querySelector(".the-man .head").style.borderColor = "red";
+        document.querySelector(".the-man .body").style.backgroundColor = "red";
       }
     } else {
       document.getElementById("success").play();
@@ -121,6 +132,9 @@ document.addEventListener("click", (e) => {
 });
 
 function endGame() {
+  // Create overlay
+  let overlay = document.createElement("div");
+  overlay.className = "overlay";
   // Create Popup Div
   let div = document.createElement("div");
 
@@ -132,9 +146,27 @@ function endGame() {
   // Append Text To Div
   div.appendChild(divText);
 
+  let button = document.createElement("button");
+  button.className = "btn";
+  button.innerHTML = "Play Again";
+  button.addEventListener("click", () => {
+    window.location.reload();
+  });
+
+  let exit = document.createElement("button");
+  exit.className = "exit";
+  exit.innerHTML = "Exit";
+  exit.addEventListener("click", () => {
+    window.close();;
+  });
+
+  div.appendChild(button);
+  div.appendChild(exit);
+
   // Add Class On Div
   div.className = "popup";
 
   // Append To The Body
-  document.body.appendChild(div);
+  overlay.appendChild(div);
+  document.body.appendChild(overlay);
 }
