@@ -57,17 +57,17 @@ let randomValueValue = randomPropValue[randomValueNumber];
 
 document.querySelector(".game-info .category span").innerHTML = randomPropName;
 
-console.log(allKeys);
-console.log(randomPropNumber);
-console.log(randomPropName);
-console.log(randomPropValue);
-console.log(randomValueNumber);
-console.log(randomValueValue);
+// console.log(allKeys);
+// console.log(randomPropNumber);
+// console.log(randomPropName);
+// console.log(randomPropValue);
+// console.log(randomValueNumber);
+// console.log(randomValueValue);
 
 let lettersGuessContainer = document.querySelector(".letters-guess");
 
 let lettersAndSpace = Array.from(randomValueValue);
-console.log(lettersAndSpace);
+// console.log(lettersAndSpace);
 
 lettersAndSpace.forEach((letter) => {
   let emptySpan = document.createElement("span");
@@ -81,8 +81,8 @@ lettersAndSpace.forEach((letter) => {
 });
 
 let theChosenWord = Array.from(randomValueValue.toLowerCase());
-console.log(lettersAndSpace);
-console.log(theChosenWord);
+// console.log(lettersAndSpace);
+// console.log(theChosenWord);
 
 let guessSpans = document.querySelectorAll(".letters-guess span");
 
@@ -95,10 +95,10 @@ document.addEventListener("click", (e) => {
   if (e.target.className === "letter-box") {
     e.target.classList.add("clicked");
     let theClickedLetter = e.target.innerHTML.toLowerCase();
-    console.log(theClickedLetter);
+    // console.log(theClickedLetter);
     theChosenWord.forEach((wordLetter, wordIndex) => {
       if (wordLetter === theClickedLetter) {
-        console.log(`found at index ${wordIndex}`);
+        // console.log(`found at index ${wordIndex}`);
         theStatus = true;
         guessSpans.forEach((span, spanIndex) => {
           if (wordIndex === spanIndex) {
@@ -107,7 +107,7 @@ document.addEventListener("click", (e) => {
         });
       }
     });
-    console.log(theStatus);
+    // console.log(theStatus);
     if (theStatus === false) {
       wrongAttemps++;
       theDraw.classList.add(`wrong-${wrongAttemps}`);
@@ -139,7 +139,8 @@ document.addEventListener("click", (e) => {
     lettersContainer.classList.add("finished");
     setTimeout(() => {
       winning();
-    }, 1000);
+    }, 3000);
+    document.getElementById("vectory").play();
   }
 });
 
@@ -187,7 +188,6 @@ function winning() {
   // Create overlay
   let overlay = document.createElement("div");
   overlay.className = "overlay";
-
 
   // Create Popup Div
   let div = document.createElement("div");
