@@ -7,7 +7,7 @@
 - [Testing](#testing)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [About-me](#aboutme)
+- [About-me](#about-me)
 
 ## Introduction
 This is a sample README.md file for a project. my project is written in a different language (HTML - CSS - JavaScript)
