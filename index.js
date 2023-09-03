@@ -73,7 +73,10 @@ lettersAndSpace.forEach((letter) => {
   let emptySpan = document.createElement("span");
   if (letter === " ") {
     emptySpan.className = "with-space";
+  } else {
+    emptySpan.className = "letter";
   }
+  emptySpan.textContent = " ";
   lettersGuessContainer.appendChild(emptySpan);
 });
 
@@ -112,26 +115,35 @@ document.addEventListener("click", (e) => {
 
       if (wrongAttemps === 8) {
         setTimeout(() => {
-          endGame();
-          window.reload();
-        }, 2000);
-
-        // setTimeout(() => {
-        //   location.reload()
-        // }, 5000);
-
+          failling();
+        }, 1000);
         lettersContainer.classList.add("finished");
         document.getElementById("killed").play();
-        document.querySelector(".the-man .head").style.borderColor = "red";
-        document.querySelector(".the-man .body").style.backgroundColor = "red";
       }
     } else {
       document.getElementById("success").play();
     }
   }
+
+  let mySpans = document.querySelectorAll(".letter");
+  let allSpansContainLetter = true;
+  mySpans.forEach((span) => {
+    const text = span.textContent || span.innerText;
+    if (!text.trim()) {
+      allSpansContainLetter = false;
+      return;
+    }
+  });
+
+  if (allSpansContainLetter === true && wrongAttemps < 8) {
+    lettersContainer.classList.add("finished");
+    setTimeout(() => {
+      winning();
+    }, 1000);
+  }
 });
 
-function endGame() {
+function failling() {
   // Create overlay
   let overlay = document.createElement("div");
   overlay.className = "overlay";
@@ -148,6 +160,48 @@ function endGame() {
 
   let button = document.createElement("button");
   button.className = "btn";
+  button.innerHTML = "Try Again";
+  button.addEventListener("click", () => {
+    window.location.reload();
+  });
+
+  let exit = document.createElement("button");
+  exit.className = "exit";
+  exit.innerHTML = "Exit";
+  exit.addEventListener("click", () => {
+    window.close();
+  });
+
+  div.appendChild(button);
+  div.appendChild(exit);
+
+  // Add Class On Div
+  div.className = "popup";
+
+  // Append To The Body
+  overlay.appendChild(div);
+  document.body.appendChild(overlay);
+}
+
+function winning() {
+  // Create overlay
+  let overlay = document.createElement("div");
+  overlay.className = "overlay";
+
+
+  // Create Popup Div
+  let div = document.createElement("div");
+  // Create Text
+  div.textContent = "Winner, Cogratulation";
+
+  let p = document.createElement("p");
+  // Create Text
+  p.textContent = `With ${wrongAttemps} Times Wrong`;
+  // Append Text To Div
+  div.appendChild(p);
+
+  let button = document.createElement("button");
+  button.className = "btn";
   button.innerHTML = "Play Again";
   button.addEventListener("click", () => {
     window.location.reload();
@@ -157,7 +211,7 @@ function endGame() {
   exit.className = "exit";
   exit.innerHTML = "Exit";
   exit.addEventListener("click", () => {
-    window.close();;
+    window.close();
   });
 
   div.appendChild(button);
