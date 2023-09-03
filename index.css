@@ -316,7 +316,7 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(34, 34, 34, 0.9);
+  background-color: rgba(34, 34, 34, 0.7);
 }
 .popup {
   position: fixed;
@@ -375,4 +375,11 @@ hr {
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
   cursor: pointer;
+}
+
+.popup p {
+  color: var(--main-color);
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
 }
